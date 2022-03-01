@@ -5,6 +5,7 @@ namespace app\model;
 
 
 use think\db\exception\ModelNotFoundException;
+use think\facade\App;
 use think\facade\Db;
 use think\Model;
 
@@ -31,7 +32,7 @@ class Photo extends Model
             }
         }
 
-        foreach ($photos as &$photo)
+        foreach ($photos['data'] as &$photo)
         {
             if (substr($photo['img_url'], 0, 4) === "http") {
 
@@ -51,15 +52,17 @@ class Photo extends Model
                 'list_rows' => $pagesize,
                 'query' => request()->param(),
             ]);
-        foreach ($data as &$pic)
+
+        $arr = $data->toArray();
+        foreach ($arr['data'] as &$photo)
         {
-            if (substr($pic['img_url'], 0, 4) === "http") {
+            if (substr($photo['img_url'], 0, 4) === "http") {
 
             } else {
-                $pic['img_url'] = $img_domain . $pic['img_url'];
+                $photo['img_url'] = $img_domain . $photo['img_url'];
             }
         }
-        $arr = $data->toArray();
+
         $paged = array();
         $paged['photos'] = $arr['data'];
         $paged['page'] = [
