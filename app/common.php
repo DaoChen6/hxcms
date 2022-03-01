@@ -105,6 +105,6 @@ function adminurl(string $url = '', array $vars = [], $suffix = true, $domain = 
 }
 
 function replaceSpecialChar($strParam){
-    $regex = "/\ |\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\<|\>|\?|\[|\]|\,|\;|\'|\`|\-|\=|\\\|\|/";
+    $regex = "/\ |\<|\>|\?|/";
     return preg_replace($regex,"",$strParam);
 }
