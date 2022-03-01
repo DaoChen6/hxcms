@@ -18,7 +18,7 @@ class Payment extends BaseAdmin
     public function index()
     {
         if (request()->isPost()) {
-            $content = input('json');
+            $content = replaceSpecialChar(input('json'));
             try {
                 file_put_contents(App::getRootPath() . 'config/payment.php', $content);
                 return json(['err' => 0, 'msg' => '保存成功']);

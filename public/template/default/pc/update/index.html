@@ -74,21 +74,21 @@
                     {if $page.current_page == 1}
                     <li><a>&lt;</a></li>
                     {else/}
-                    <li><a id="prevPage" href="/{$booklist_act}?page={$page.current_page-1}{$param}" title="上一页">&lt;</a></li>
+                    <li><a id="prevPage" href="/{$update_act}?page={$page.current_page-1}{$param}" title="上一页">&lt;</a></li>
                     {/if}
 
                     {for start="1" end="$page.last_page + 1"}
                     {if $i == $page.current_page }
-                    <li><a href="/{$booklist_act}?page={$i}{$param}" class="active">{$i}</a></li>
+                    <li><a href="/{$update_act}?page={$i}{$param}" class="active">{$i}</a></li>
                     {elseif ($i > $page.current_page - 4 && $i < $page.current_page + 5)/}
-                    <li><a href="/{$booklist_act}?page={$i}{$param}" title="第{$i}页">{$i}</a></li>
+                    <li><a href="/{$update_act}?page={$i}{$param}" title="第{$i}页">{$i}</a></li>
                     {/if}
                     {/for}
 
                     {if $page.current_page == $page.last_page}
                     <li><a>&gt;</a></li>
                     {else/}
-                    <li><a id="nextPage" href="/{$booklist_act}?page={$page.current_page+1}{$param}" title="下一页">&gt;</a></li>
+                    <li><a id="nextPage" href="/{$update_act}?page={$page.current_page+1}{$param}" title="下一页">&gt;</a></li>
                     {/if}
                     {/if}
                 </div>

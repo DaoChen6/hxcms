@@ -82,8 +82,8 @@ class Friendshiplinks extends BaseAdmin
     public function didi()
     {
         if (request()->isPost()) {
-            $site_id = input('siteid');
-            $token = input('token');
+            $site_id = replaceSpecialChar(input('siteid'));
+            $token = replaceSpecialChar(input('token'));
             $code = <<<INFO
 <?php
 return [
